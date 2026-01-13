@@ -10,6 +10,15 @@ local hdoor_list = {   --Number , Description , default image
 	{ "bookshelf", "Hidden Bookshelf Door" , "mydoors_bookshelf" , "door9"},
 }
 
+if core.get_modpath("lucky_block") then
+	for i in ipairs(hdoor_list) do
+	local nam = hdoor_list[i][1]
+		lucky_block:add_blocks({
+			{"dro", {"my_hidden_doors:hidden_door"..nam}, 2},
+		})
+	end
+end
+
 local function add_door(img, desc)
 	-- Cannot add locked doors because the tooltip defies the purpose of being a hidden door
 	doors.register_door("my_hidden_doors:hidden_door"..img, {

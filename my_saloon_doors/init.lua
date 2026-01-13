@@ -10,6 +10,16 @@ local doorcol = {
 	{"yellow",	"Yellow",	"^[colorize:yellow:100", "my_door_wood:wood_yellow"},
 }
 
+if core.get_modpath("lucky_block") then
+
+	for i in ipairs(doorcol) do
+	local col = doorcol[i][1]
+		lucky_block:add_blocks({
+			{"dro", {"my_saloon_doors:door1a_"..col}, 2},
+		})
+	end
+end
+
 local function add_door(col, des, tint, craft)
 	core.register_node("my_saloon_doors:door1a_"..col, {
 		description = des.." Saloon Door ",

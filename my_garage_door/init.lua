@@ -107,6 +107,13 @@ core.register_node("my_garage_door:garage_door", {
 		core.set_node(above, {name="air"})
 	end,
 })
+
+if core.get_modpath("lucky_block") then
+	lucky_block:add_blocks({
+		{"dro", {"my_garage_door:garage_door"}, 1},
+	})
+end
+
 core.register_node("my_garage_door:garage_door_top", {
 	tiles = {
 		"default_snow.png"
